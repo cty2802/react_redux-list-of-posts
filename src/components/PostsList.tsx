@@ -2,13 +2,13 @@ import classNames from 'classnames';
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
-import * as postsActions from '../features/secondApp/PostsSlice';
+import * as postsActions from '../features/secondApp/postsSlice';
 
 export const PostsList: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const userId = useAppSelector((state: RootState) => {
-    return state.users.author?.id;
+    return state.author.author?.id;
   });
 
   const selectedPostId = useAppSelector((state: RootState) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { RootState } from '../app/store';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import * as commentsActions from '../features/secondApp/CommentsSlice';
+import * as commentsActions from '../features/secondApp/commentsSlice';
 
 export const PostDetails: React.FC = () => {
   const dispatch = useAppDispatch();

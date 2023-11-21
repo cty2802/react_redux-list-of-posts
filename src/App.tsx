@@ -16,7 +16,7 @@ export const App: React.FC = () => {
   // const [hasError, setError] = useState(false);
 
   const selectedUser = useAppSelector((state: RootState) => {
-    return state.users.author;
+    return state.author.author;
   });
 
   const selectedPost = useAppSelector((state: RootState) => {

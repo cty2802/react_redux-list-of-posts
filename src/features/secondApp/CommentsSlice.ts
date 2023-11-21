@@ -28,14 +28,12 @@ export type CommentsState = {
   loading: boolean,
   error: string,
   comments: Comment[] | undefined,
-  commentToRemove: Comment | undefined,
 };
 
 const initialState: CommentsState = {
   loading: false,
   error: '',
   comments: undefined,
-  commentToRemove: undefined,
 };
 
 const commentsSlice = createSlice({

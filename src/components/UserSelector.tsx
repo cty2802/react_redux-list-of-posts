@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { RootState } from '../app/store';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import * as usersActions from '../features/secondApp/UsersSlice';
-import * as postsActions from '../features/secondApp/PostsSlice';
+import * as usersActions from '../features/secondApp/usersSlice';
+import * as postsActions from '../features/secondApp/postsSlice';
+import * as authorActions from '../features/secondApp/authorSlice';
 
 export const UserSelector: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -13,7 +14,7 @@ export const UserSelector: React.FC = () => {
   });
 
   const selectedUser = useAppSelector((state: RootState) => {
-    return state.users.author;
+    return state.author.author;
   });
 
   const [expanded, setExpanded] = useState(false);
@@ -76,7 +77,7 @@ export const UserSelector: React.FC = () => {
             <a
               key={user.id}
               href={`#user-${user.id}`}
-              onClick={() => dispatch(usersActions.setAuthor(user))}
+              onClick={() => dispatch(authorActions.setAuthor(user))}
               className={classNames('dropdown-item', {
                 'is-active': user.id === selectedUser?.id,
               })}
