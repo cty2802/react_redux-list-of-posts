@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { RootState } from '../app/store';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import * as commentsActions from '../features/secondApp/CommentsSlice';
-import { Loader } from './Loader';
 
 export const PostDetails: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -18,6 +17,10 @@ export const PostDetails: React.FC = () => {
   const comments = useAppSelector((state: RootState) => {
     return state.comments.comments;
   });
+
+  // const removeGood = (commentToRemove: string) => {
+  //   dispatch(commentsActions.(commentToRemove));
+  // };
 
   const [loaded] = useState(false);
   const [hasError] = useState(false);
@@ -110,9 +113,9 @@ export const PostDetails: React.FC = () => {
       </div>
 
       <div className="block">
-        {!loaded && (
+        {/* {!loaded && (
           <Loader />
-        )}
+        )} */}
 
         {loaded && hasError && (
           <div className="notification is-danger" data-cy="CommentsError">
@@ -146,7 +149,7 @@ export const PostDetails: React.FC = () => {
                   type="button"
                   className="delete is-small"
                   aria-label="delete"
-                  // onClick={() => deleteComment(comment.id)}
+                  // onClick={() => removeGood(comment.id)}
                 >
                   delete button
                 </button>

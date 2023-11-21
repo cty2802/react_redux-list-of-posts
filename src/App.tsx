@@ -24,24 +24,10 @@ export const App: React.FC = () => {
   const selectedUser = useAppSelector((state: RootState) => {
     return state.users.author;
   });
-  // function loadUserPosts(userId: number) {
-  //   setLoaded(false);
 
-  //   getUserPosts(userId)
-  //     .then(setPosts)
-  //     .catch(() => setError(true))
-  //     .finally(() => setLoaded(true));
-  // }
-
-  // useEffect(() => {
-  //   setSelectedPost(null);
-
-  //   if (selectedUser) {
-  //     // loadUserPosts(selectedUser.id);
-  //   } else {
-  //     setPosts([]);
-  //   }
-  // }, [selectedUser?.id]);
+  const selectedPost = useAppSelector((state: RootState) => {
+    return state.posts.selectedPost;
+  });
 
   return (
     <main className="section">
@@ -114,15 +100,15 @@ export const App: React.FC = () => {
               'is-parent',
               'is-8-desktop',
               'Sidebar',
-              // {
-              //   'Sidebar--open': selectedPost,
-              // },
+              {
+                'Sidebar--open': selectedPost,
+              },
             )}
           >
             <div className="tile is-child box is-success ">
-              {/* {selectedPost && ( */}
-              <PostDetails />
-              {/* )} */}
+              {selectedPost && (
+                <PostDetails />
+              )}
             </div>
           </div>
         </div>
