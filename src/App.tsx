@@ -7,19 +7,13 @@ import classNames from 'classnames';
 import { PostsList } from './components/PostsList';
 import { PostDetails } from './components/PostDetails';
 import { UserSelector } from './components/UserSelector';
-// import { Post } from './types/Post';
 import { Counter } from './features/counter/Counter';
 import { RootState } from './app/store';
 import { useAppSelector } from './app/hooks';
 
 export const App: React.FC = () => {
-  // const posts = useAppSelector((state: RootState) => {
-  //   return state.posts;
-  // });
   // const [loaded, setLoaded] = useState(false);
   // const [hasError, setError] = useState(false);
-
-  // const [selectedPost] = useState<Post | null>(null);
 
   const selectedUser = useAppSelector((state: RootState) => {
     return state.users.author;
